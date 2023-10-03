@@ -7,5 +7,5 @@ internal enum LogLevel
     Error,
     Warning,
     Information,
-    Trace
+    Trace,
 }

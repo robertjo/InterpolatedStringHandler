@@ -1,5 +1,5 @@
-﻿using InterpolatedStringHandler.StringHandlers;
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
+using InterpolatedStringHandler.StringHandlers;
 
 namespace InterpolatedStringHandler.Classes;
 
@@ -9,7 +9,11 @@ internal class Logger2
 
     public void LogMessage(LogLevel level, string msg)
     {
-        if (EnabledLevel < level) return;
+        if (EnabledLevel < level)
+        {
+            return;
+        }
+
         Console.WriteLine(msg);
     }
 
@@ -17,7 +21,11 @@ internal class Logger2
         LogLevel level,
         [InterpolatedStringHandlerArgument("", "level")] LogInterpolatedStringHandler2 builder)
     {
-        if (EnabledLevel < level) return;
+        if (EnabledLevel < level)
+        {
+            return;
+        }
+
         Console.WriteLine(builder.GetFormattedText());
     }
 }

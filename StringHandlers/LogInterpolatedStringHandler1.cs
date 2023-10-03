@@ -1,6 +1,6 @@
-﻿using InterpolatedStringHandler.Classes;
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 using System.Text;
+using InterpolatedStringHandler.Classes;
 
 namespace InterpolatedStringHandler.StringHandlers;
 
@@ -36,7 +36,8 @@ internal readonly struct LogInterpolatedStringHandler1
         Console.WriteLine($"\tAppended the formatted object");
     }
 
-    public void AppendFormatted<T>(T t, string format) where T : IFormattable
+    public void AppendFormatted<T>(T t, string format)
+        where T : IFormattable
     {
         Console.WriteLine($"\tAppendFormatted (IFormattable version) called: {t} with format {{{format}}} is of type {typeof(T)},");
         builder.Append(t?.ToString(format, null));

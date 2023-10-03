@@ -1,6 +1,6 @@
-﻿using InterpolatedStringHandler.Classes;
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 using System.Text;
+using InterpolatedStringHandler.Classes;
 
 namespace InterpolatedStringHandler.StringHandlers;
 
@@ -21,20 +21,13 @@ internal readonly struct LogInterpolatedStringHandler2
         builder = isEnabled ? new StringBuilder(literalLength) : default!;
     }
 
-    public readonly void AppendLiteral(string s)
-    {
-        builder.Append(s);
-    }
+    public readonly void AppendLiteral(string s) => builder.Append(s);
 
-    public readonly void AppendFormatted<T>(T t)
-    {
-        builder.Append(t?.ToString());
-    }
+    public readonly void AppendFormatted<T>(T t) => builder.Append(t?.ToString());
 
-    public readonly void AppendFormatted<T>(T t, string format) where T : IFormattable
-    {
-        builder.Append(t?.ToString(format, null));
-    }
+    public readonly void AppendFormatted<T>(T t, string format)
+        where T : IFormattable
+        => builder.Append(t?.ToString(format, null));
 
     internal readonly string GetFormattedText() => builder.ToString();
 }
